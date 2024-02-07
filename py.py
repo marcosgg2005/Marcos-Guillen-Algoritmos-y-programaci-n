@@ -1,0 +1,5 @@
+print("hola".upper())
+print("HOLA".lower())
+print(abs(4.65))
+print(round(4.65))
+print(round(4.2))

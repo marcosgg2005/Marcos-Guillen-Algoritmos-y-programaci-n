@@ -1,0 +1,33 @@
+x = input("eres chico o chica?")
+x= x.lower()
+w = "Bienvenid"
+if x == "chico":
+    w+='o'
+else:
+    w+= "a"
+print(w,"al mundo del los pokemon")
+y= input ("que edad tienes?")
+if int(y)<10:
+    if x == "chico":
+        print("No tienes edad para ser entrenador")
+    else:
+        print("No tienes edad para ser entrenadora")
+        quit()
+if int(y)>10:
+     print("Vamos!!")
+reg=input("Necesitarás un compañero de viaje. En que región te encuentras?")
+if  (reg)=="Kanto":
+     print("Tu compañera de viajes es Misty!")
+else:
+     print("Tu compañero de viaje es Brook!")
+tipo= input("que tipo de pokemon quieres para empezar?")
+tipo== tipo.lower()
+if tipo == "agua":
+     print("Tu starter es Osshawott")
+elif tipo== "fuego":
+     print("Tu starter es Cyndaquil")
+else:
+     print("Tu starter es rowlet")
+
+
+    
