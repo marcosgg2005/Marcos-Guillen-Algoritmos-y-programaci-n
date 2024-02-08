@@ -24,3 +24,85 @@ def ascuas (Mjugador, InfoOponente):
     else:
         print ("el oponente fue debilitado")
     return InfoOponente
+    print ("el oponente utilizó latigo") 
+    if infoJUgador[1] > 10:
+        DeltaAD = MOponente["latigo"]
+        infoJUgador[1] -= DeltaAD [1]
+        infoJUgador [0] -= DeltaAD [0]
+        print ("la defensa del jugador ahora es de" + str (infoJUgador[1]))
+        print ("sus PS ahora son " + str(infoJUgador[0]))
+    else:
+        print("el jugador tiene la defensa al mínimo")
+    return infoJUgador
+
+def placajeO (MOponente, infoJUgador):
+    print ("el oponente utilizó placaje")
+    DeltaAD = MOponente ["placaje"]
+    infoJUgador[0] -= DeltaAD[0] * (100 / infoJUgador[1])
+    if infoJUgador [0] >= 0: 
+        print ("el PS del jugador es de " + str (infoJUgador[0]))
+    else: 
+        print ("el jugador ha sido debilitado")
+    return infoJUgador
+
+def PAgua(MOponente, infoJUgador):
+    print ("el oponente utilizó pistola de agua")
+    DeltaAD = MOponente ["pistola de agua"]
+    infoJUgador[0] -= DeltaAD[0] * (100 / infoJUgador[1])
+    if infoJUgador [0] >= 0:
+        print ("el PS del jugador es de " + str (infoJUgador[0]))
+    else: 
+        print ("el jugador ha sido debilitado")
+    return infoJUgador
+    
+import math
+import random
+     
+#El primer número de cada uno es la vida y el segundo la defensa
+infoJUgador = [100 , 100]
+InfoOponente = [100, 100]
+    
+#primer valor de la tupla afecta en ps y el segundo la defensa 
+Mjugador = { "malicioso" : ( 0,10), "placaje" : (35:0), "ascuas" : (20:0)}
+MOponente = { "latigo" : ( 10,10), "placaje" : (35:0), "pistola de agua" : (20:0)}
+               
+print (" Inicio de la batalla") 
+print ("PS jugador " + str (infoJUgador[0]) + " y def jugador" + str(infoJUgador[1])) 
+print ("PS oponente" + str (InfoOponente[0]) + " y def oponente" + str(InfoOponente [1]))
+
+while infoJUgador[0]> 0 and InfoOponente [0] >0:
+    #desición de movimiento por parte del jugador 
+    print ("cual será su movimiento?")
+    print (" malicioso, ascuas, placaje")
+    atJugador = input().lower()
+    if atJugador == "malicioso" or atJugador == "ascuas" or atJugador == "placaje":
+        if atJugador == "malicioso":
+            malicioso(InfoOponente,Mjugador)
+        elif atJugador == "ascuas":
+            ascuas(Mjugador,InfoOponente)
+        elif atJugador == "placaje":
+            placajeJ(Mjugador, InfoOponente)
+    else: 
+        print("no posees el ataque " + str (atJugador))
+    if InfoOponente [0] <= 0:
+        print ("ha ganado el jugador")
+        quit()
+        
+#Desición del movimiento por partre del oponente 
+    atOponente= random.randrange(1,4)
+    if atOponente == 1:
+        latigo(MOponente, infoJUgador)
+    elif atOponente == 2:
+        placajeO (MOponente, InfoOponente)
+    elif atOponente == 3:
+        PAgua (MOponente, InfoOponente )
+    if infoJUgador <= 0 :
+        print ("El jugador ha perdido")
+        quit()
+        
+            
+            
+
+    
+    
+    
