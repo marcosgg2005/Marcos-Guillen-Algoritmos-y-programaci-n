@@ -64,9 +64,9 @@ import random
 infoJUgador = [100 , 100]
 InfoOponente = [100, 100]
     
-#primer valor de la tupla afecta en ps y el segundo la defensa 
-Mjugador = { "malicioso" : ( 0,10), "placaje" : (35:0), "ascuas" : (20:0)}
-MOponente = { "latigo" : ( 10,10), "placaje" : (35:0), "pistola de agua" : (20:0)}
+Mjugador = { "malicioso" : ( 0,10), "placaje" : (35, 0), "ascuas" : (20, 0)}
+MOponente = { "latigo" : ( 10,10), "placaje" : (35, 0), "pistola de agua" : (20, 0)}
+
                
 print (" Inicio de la batalla") 
 print ("PS jugador " + str (infoJUgador[0]) + " y def jugador" + str(infoJUgador[1])) 
@@ -98,13 +98,6 @@ while infoJUgador[0]> 0 and InfoOponente [0] >0:
         placajeO (MOponente, InfoOponente)
     elif atOponente == 3:
         PAgua (MOponente, InfoOponente )
-    if infoJUgador <= 0 :
-        print ("El jugador ha perdido")
-        quit()
-        
-            
-            
-
-    
-    
-    
+    if infoJUgador[0] <= 0:
+     print ("El jugador ha perdido")
+     quit()

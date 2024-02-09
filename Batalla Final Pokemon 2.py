@@ -18,7 +18,7 @@ def placajeJ(Mjugador,InfoOponente):
 
 def ascuas (Mjugador, InfoOponente):
     DeltaAD = Mjugador ["ascuas"]
-    InfoOponente [0] -= DeltaAD [0] * (100 / InfoOponente [1]) 
+    InfoOponente [0] -= DeltaAD [0] * (100 / InfoOponente[1]) 
     if InfoOponente [0] >= 0:
         print ("el PS del oponente es de " + str (InfoOponente[0]))
     else:
@@ -64,18 +64,22 @@ import random
 infoJUgador = [100 , 100]
 InfoOponente = [100, 100]
     
-#primer valor de la tupla afecta en ps y el segundo la defensa 
-Mjugador = { "malicioso" : ( 0,10), "placaje" : (35:0), "ascuas" : (20:0)}
-MOponente = { "latigo" : ( 10,10), "placaje" : (35:0), "pistola de agua" : (20:0)}
+Mjugador = { "malicioso" : ( 0,10), "placaje" : (35, 0), "ascuas" : (20, 0)}
+MOponente = { "latigo" : ( 10,10), "placaje" : (35, 0), "pistola de agua" : (20, 0)}
+
                
+# Pide a los jugadores que ingresen sus nombres al principio del juego
+nombreJugador = input("Por favor, introduce el nombre del jugador: ")
+nombreOponente = input("Por favor, introduce el nombre del oponente: ")
+
 print (" Inicio de la batalla") 
 print ("PS jugador " + str (infoJUgador[0]) + " y def jugador" + str(infoJUgador[1])) 
 print ("PS oponente" + str (InfoOponente[0]) + " y def oponente" + str(InfoOponente [1]))
 
-while infoJUgador[0]> 0 and InfoOponente [0] >0:
-    #desición de movimiento por parte del jugador 
-    print ("cual será su movimiento?")
-    print (" malicioso, ascuas, placaje")
+while True:
+    # Desición de movimiento por parte del jugador 
+    print ("¿Cuál será su movimiento?")
+    print ("malicioso, ascuas, placaje")
     atJugador = input().lower()
     if atJugador == "malicioso" or atJugador == "ascuas" or atJugador == "placaje":
         if atJugador == "malicioso":
@@ -85,12 +89,9 @@ while infoJUgador[0]> 0 and InfoOponente [0] >0:
         elif atJugador == "placaje":
             placajeJ(Mjugador, InfoOponente)
     else: 
-        print("no posees el ataque " + str (atJugador))
-    if InfoOponente [0] <= 0:
-        print ("ha ganado el jugador")
-        quit()
-        
-#Desición del movimiento por partre del oponente 
+        print("No posees el ataque " + str (atJugador))
+
+    # Desición del movimiento por parte del oponente 
     atOponente= random.randrange(1,4)
     if atOponente == 1:
         latigo(MOponente, infoJUgador)
@@ -98,13 +99,14 @@ while infoJUgador[0]> 0 and InfoOponente [0] >0:
         placajeO (MOponente, InfoOponente)
     elif atOponente == 3:
         PAgua (MOponente, InfoOponente )
-    if infoJUgador <= 0 :
-        print ("El jugador ha perdido")
-        quit()
-        
-            
-            
 
-    
-    
-    
+    # Verificar las condiciones de victoria
+    if InfoOponente [0] <= 0 and infoJUgador[0] <= 0:
+        print ("¡Es un empate!")
+        break
+    elif InfoOponente [0] <= 0:
+        print ("¡" + nombreJugador + " ha ganado!")
+        break
+    elif infoJUgador[0] <= 0:
+        print ("¡" + nombreOponente + " ha ganado!")
+        break
