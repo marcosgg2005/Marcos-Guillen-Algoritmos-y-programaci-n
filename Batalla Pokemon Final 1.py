@@ -89,8 +89,7 @@ while infoJUgador[0]> 0 and InfoOponente [0] >0:
     if InfoOponente [0] <= 0:
         print ("ha ganado el jugador")
         quit()
-        
-#Desición del movimiento por partre del oponente 
+        #Desición del movimiento por partre del oponente 
     atOponente= random.randrange(1,4)
     if atOponente == 1:
         latigo(MOponente, infoJUgador)

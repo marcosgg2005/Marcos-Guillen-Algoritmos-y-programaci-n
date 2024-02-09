@@ -10,5 +10,5 @@ sal= int (input("indica la cantidad de sal a utilizar en gramos:"))
  
 gramos= harina + agua+ sal 
 arepa= gramos / 65 
-
-print ("vas a obtener", arepa , "arepas")
+ 
+print ("vas a obtener", arepa, "arepas")
